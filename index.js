@@ -10,7 +10,14 @@ const { authGoogleSheets } = require('./services/google_sheets_auth');
 const { broadcastMessageIndividual } = require('./utils/broadcast_individual')
 const { broadcastMessageGroup } = require('./utils/broadcast_group')
 const { RUN_MODE_SCRAP, RUN_MODE_BULK_MSG } = process.env;
-
+const express = require('express')
+const app = express();
+app.get('/', (req, res) => {
+    res.send('hello world')
+})
+app.listen(3000, function () {
+    console.log(`Listening on Port 3000`);
+});
 if (RUN_MODE_SCRAP === 'YES') {
     require('./config/db');
 }
