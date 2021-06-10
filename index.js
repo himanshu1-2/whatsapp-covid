@@ -15,7 +15,7 @@ const app = express();
 app.get('/', (req, res) => {
     res.send('hello world')
 })
-app.listen(3000, function () {
+app.listen(process.env.port, function () {
     console.log(`Listening on Port 3000`);
 });
 if (RUN_MODE_SCRAP === 'YES') {
