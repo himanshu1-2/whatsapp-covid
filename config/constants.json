@@ -1,0 +1,26 @@
+{
+    "DOCUMENTS": {
+        "MESSAGES": {
+            "DOC_REF": "docMessages",
+            "SHEET": "MESSAGES"
+        },
+        "BROADCAST": {
+            "DOC_REF": "docBroadcast",
+            "SHEET": "MSG_BROADCAST"
+        },
+
+        "GROUP_INVITE": {
+            "DOC_REF": "docGroupInvite",
+            "SHEET": "GROUP_INVITE"
+        },
+        "BROADCAST_INDIVIDUAL": {
+            "DOC_REF": "docBroadcastIndividual",
+            "SHEET": "MSG_BROADCAST_INDIVIDUAL"
+        }
+
+    },
+    "DELAYS": {
+        "BROADCAST": 5000,
+        "ACCEPT_INVITE": 10000
+    }
+}
