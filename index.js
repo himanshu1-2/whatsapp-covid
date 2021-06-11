@@ -37,9 +37,7 @@ venom
         undefined,
 
         (statusSession, session) => {
-            browserArgs: ['--no-sandbox']
-            useChrome: false,
-                console.log('Status Session: ', statusSession);
+            console.log('Status Session: ', statusSession);
             //return isLogged || notLogged || browserClose || qrReadSuccess || qrReadFail || autocloseCalled || desconnectedMobile || deleteToken || chatsAvailable || deviceNotConnected || serverWssNotConnected || noOpenBrowser
             //Create session wss return "serverClose" case server for close
             console.log('Session name: ', session);
