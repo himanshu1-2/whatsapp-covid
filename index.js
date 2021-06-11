@@ -10,23 +10,7 @@ const { authGoogleSheets } = require('./services/google_sheets_auth');
 const { broadcastMessageIndividual } = require('./utils/broadcast_individual')
 const { broadcastMessageGroup } = require('./utils/broadcast_group')
 const { RUN_MODE_SCRAP, RUN_MODE_BULK_MSG } = process.env;
-const express = require('express')
-const chromiumArgs = [
-    '--disable-web-security', '--no-sandbox', '--disable-web-security',
-    '--aggressive-cache-discard', '--disable-cache', '--disable-application-cache',
-    '--disable-offline-load-stale-cache', '--disk-cache-size=0',
-    '--disable-background-networking', '--disable-default-apps', '--disable-extensions',
-    '--disable-sync', '--disable-translate', '--hide-scrollbars', '--metrics-recording-only',
-    '--mute-audio', '--no-first-run', '--safebrowsing-disable-auto-update',
-    '--ignore-certificate-errors', '--ignore-ssl-errors', '--ignore-certificate-errors-spki-list'
-];
-const app = express();
-app.get('/', (req, res) => {
-    res.send('hello world')
-})
-app.listen(process.env.port, function () {
-    console.log(`Listening on Port 3000`);
-});
+
 if (RUN_MODE_SCRAP === 'YES') {
     require('./config/db');
 }
