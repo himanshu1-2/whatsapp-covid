@@ -29,12 +29,7 @@ venom
             // Retrieve all groups
 
         },
-        {
-            browserArgs: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-            ]
-        },
+        undefined
     )
     .then(async (client) => {
         const googleSheets = await authGoogleSheets();
