@@ -1,12 +1,16 @@
 require('dotenv').config();
 const venom = require('venom-bot');
 const fs = require('fs');
+const express = require('express')
 const commands = require('./config/commands.json');
 const { runCommand } = require('./utils/command');
 const { logMessage } = require('./utils/log_message');
 //const { chatReply } = require('./services/send_message');
 const { authGoogleSheets } = require('./services/google_sheets_auth');
-
+const app = express()
+app.listen(process.env.port, () => {
+    console.log('server running in port ')
+})
 const { broadcastMessageIndividual } = require('./utils/broadcast_individual')
 const { broadcastMessageGroup } = require('./utils/broadcast_group')
 const { RUN_MODE_SCRAP, RUN_MODE_BULK_MSG } = process.env;
