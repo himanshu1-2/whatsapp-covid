@@ -16,32 +16,33 @@ async function broadcastMessageGroup(client, msg) {
     let promise = Promise.resolve();
     chatGroups.forEach(group => {
         promise = promise.then(async () => {
-            if (msg.isMedia === true && msg.type === 'image') {
-                sendImage(client, fileName, msg.caption, group.id._serialized)
+            if (group.name === 'Me and' || group.name === 'Me you') {
+                if (msg.isMedia === true && msg.type === 'image') {
+                    sendImage(client, fileName, msg.caption, group.id._serialized)
 
 
+                }
+                else if (msg.type === 'document') {
+                    sendFile(client, fileName, msg.caption, group.id._serialized)
+
+                }
+                else {
+                    chatReply(client, group.id._serialized, msg.body);
+
+                }
+                console.log('BROADCAST: SENDING TO', group.id);
             }
-            else if (msg.type === 'document') {
-                sendFile(client, fileName, msg.caption, group.id._serialized)
-
-            }
-            else {
-                chatReply(client, group.id._serialized, msg.body);
-
-            }
-            console.log('BROADCAST: SENDING TO', group.id);
-        }
 
 
 
             return new Promise((resolve) => {
-            setTimeout(resolve, DELAYS.BROADCAST);
+                setTimeout(resolve, DELAYS.BROADCAST);
+            })
         })
-    })
-});
-promise.then(function () {
-    console.log('BROADCAST:-- FINISHED BROADCAST --')
-});
+    });
+    promise.then(function () {
+        console.log('BROADCAST:-- FINISHED BROADCAST --')
+    });
 }
 
 
