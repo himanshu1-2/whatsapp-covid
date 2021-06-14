@@ -23,8 +23,8 @@ async function authGoogleSheets() {
         // group invite sheet
         const docGroupInvite = new GoogleSpreadsheet(process.env.GOOGLE_GROUP_INVITE_SHEET_ID);
         await docGroupInvite.useServiceAccountAuth({
-            client_email: process.env.GOOGLE_CREDENTIALS.client_email,
-            private_key: process.env.GOOGLE_CREDENTIALS.private_key,
+            client_email: JSON.parse(process.env.GOOGLE_CREDENTIALS.client_email),
+            private_key: JSON.parse(process.env.GOOGLE_CREDENTIALS.private_key),
         });
         await docGroupInvite.loadInfo(); // loads document properties and worksheets
         docObject.docGroupInvite = docGroupInvite;
@@ -34,8 +34,8 @@ async function authGoogleSheets() {
         if (RUN_MODE_BULK_MSG === 'YES') {
             const docBroadcastIndividual = new GoogleSpreadsheet(process.env.GOOGLE_BROADCAST_INDIVIDUAL_SHEET_ID);
             await docBroadcastIndividual.useServiceAccountAuth({
-                client_email: process.env.GOOGLE_CREDENTIALS.client_email,
-                private_key: process.env.GOOGLE_CREDENTIALS.private_key,
+                client_email: JSON.parse(process.env.GOOGLE_CREDENTIALS.client_email),
+                private_key: JSON.parse(process.env.GOOGLE_CREDENTIALS.private_key),
             });
             await docBroadcastIndividual.loadInfo();
             docObject.docBroadcastIndividual = docBroadcastIndividual;
