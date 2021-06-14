@@ -18,7 +18,8 @@ async function authGoogleSheets() {
         // await docBroadcast.loadInfo(); // loads document properties and worksheets
         // docObject.docBroadcast = docBroadcast;
         // console.log(docBroadcast.title, `Loaded`);
-
+        console.log(process.env.GOOGLE_CREDENTIALS.client_email)
+        console.log(process.env.GOOGLE_CREDENTIALS)
         // group invite sheet
         const docGroupInvite = new GoogleSpreadsheet(process.env.GOOGLE_GROUP_INVITE_SHEET_ID);
         await docGroupInvite.useServiceAccountAuth({
