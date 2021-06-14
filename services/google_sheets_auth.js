@@ -33,8 +33,8 @@ async function authGoogleSheets() {
         if (RUN_MODE_BULK_MSG === 'YES') {
             const docBroadcastIndividual = new GoogleSpreadsheet(process.env.GOOGLE_BROADCAST_INDIVIDUAL_SHEET_ID);
             await docBroadcastIndividual.useServiceAccountAuth({
-                client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY,
+                client_email: process.env.GOOGLE_CREDENTIALS.client_email,
+                private_key: process.env.GOOGLE_CREDENTIALS.private_key,
             });
             await docBroadcastIndividual.loadInfo();
             docObject.docBroadcastIndividual = docBroadcastIndividual;
