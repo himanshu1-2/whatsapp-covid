@@ -34,7 +34,7 @@ async function authGoogleSheets() {
         const docGroupInvite = new GoogleSpreadsheet(process.env.GOOGLE_GROUP_INVITE_SHEET_ID);
         await docGroupInvite.useServiceAccountAuth({
             client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-            private_key: process.env.GOOGLE_PRIVATE_KEY
+            private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
         });
         await docGroupInvite.loadInfo(); // loads document properties and worksheets
         docObject.docGroupInvite = docGroupInvite;
@@ -45,7 +45,7 @@ async function authGoogleSheets() {
             const docBroadcastIndividual = new GoogleSpreadsheet(process.env.GOOGLE_BROADCAST_INDIVIDUAL_SHEET_ID);
             await docBroadcastIndividual.useServiceAccountAuth({
                 client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY,
+                private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
             });
             await docBroadcastIndividual.loadInfo();
             docObject.docBroadcastIndividual = docBroadcastIndividual;
@@ -55,7 +55,7 @@ async function authGoogleSheets() {
             const docMessages = new GoogleSpreadsheet(process.env.GOOGLE_MESSAGES_SHEET_ID);
             await docMessages.useServiceAccountAuth({
                 client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-                private_key: process.env.GOOGLE_PRIVATE_KEY
+                private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
             });
             await docMessages.loadInfo(); // loads document properties and worksheets
             docObject.docMessages = docMessages;
