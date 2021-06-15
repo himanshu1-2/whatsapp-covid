@@ -11,7 +11,6 @@
   "dependencies": {
     "aws-sdk": "^2.918.0",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1",
     "google-spreadsheet": "^3.1.15",
     "mime-types": "^2.1.30",
     "mongoose": "^5.12.11",
